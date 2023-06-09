@@ -1,7 +1,7 @@
 import axios from "axios"
 import {codePrompt} from "@/utils/exceptions";
 
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = 'http://49.235.128.49:5059/api/'
 
 axios.interceptors.request.use(config => {
   // config.headers[]

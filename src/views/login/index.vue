@@ -38,6 +38,9 @@
 <script>
 
 import {login} from "@/api/api";
+import md5 from "md5";
+import {useToken} from "@/utils/useToken";
+const {setToken} = useToken()
 
 export default {
   data() {
@@ -54,7 +57,7 @@ export default {
       },
       ruleForm: {
         account: 'admin',
-        password: 'admin'
+        password: 'admin@123'
       },
     }
   },
@@ -62,9 +65,13 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          let {code, data} = await login(this.ruleForm)
+          this.ruleForm.password = md5(this.ruleForm.password)
+          const res = await login(this.ruleForm)
+          const {data: {token}, code} = res.data
+          console.log(token);
           if (code == 20000) {
-            alert('Login Success')
+            setToken(token)
+            this.$router.push('/home')
           }
         } else {
           console.log('error submit!!');
