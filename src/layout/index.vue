@@ -5,12 +5,14 @@
       <el-container>
         <el-header>
           <Breadcrumb/>
-          <el-button class="exit" type="primary">quit</el-button>
+          <el-button class="exit" type="primary">退出</el-button>
           <Tag/>
         </el-header>
+
         <el-main>
           <router-view/>
         </el-main>
+
       </el-container>
     </el-container>
   </div>
@@ -20,7 +22,6 @@
 import {Breadcrumb, NavMenu, Tag} from "@/layout/components";
 
 export default {
-  name: 'index',
   components: {
     Breadcrumb,
     NavMenu,

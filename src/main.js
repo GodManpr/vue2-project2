@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import '@/style.css'
 import {setConfig, setElement} from "@/plugins";
+// 全局的过滤器
+import '@/filter'
 
 setConfig(Vue) // set Vue-Config
 

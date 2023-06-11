@@ -11,16 +11,16 @@
       <div class="login-item login-form">
         <p class="login-title">朝夕电量智能监控系统</p>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-          <el-form-item label="account" prop="account">
+          <el-form-item label="用户名" prop="account">
             <el-input v-model="ruleForm.account"></el-input>
           </el-form-item>
 
-          <el-form-item label="password" prop="password">
+          <el-form-item label="密码" prop="password">
             <el-input type="password" v-model="ruleForm.password"></el-input>
           </el-form-item>
 
           <el-form-item>
-            <el-button type="success" @click="submitForm('ruleForm')">Login</el-button>
+            <el-button type="success" @click="submitForm('ruleForm')">登录</el-button>
           </el-form-item>
         </el-form>
       </div>

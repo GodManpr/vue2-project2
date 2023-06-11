@@ -182,7 +182,7 @@ input[type=text] {
 #module .el-container .el-header {
     /* border-bottom: 1px solid #f1f1f1; */
     background: #20266d;
-    height: 90px;
+    height: 90px!important;
     padding: 0;
 }
 
