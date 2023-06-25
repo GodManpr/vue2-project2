@@ -1,10 +1,18 @@
 import {
+    Alert,
     Aside,
     Button,
     Breadcrumb,
     BreadcrumbItem,
     Card,
     Container,
+    Checkbox,
+    CheckboxGroup,
+    CheckboxButton,
+    DatePicker,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
     Dialog,
     Form,
     FormItem,
@@ -16,20 +24,30 @@ import {
     MenuItem,
     MenuItemGroup,
     Message,
+    Pagination,
     Select,
     Submenu,
+    Switch,
     Table,
     TableColumn,
     Tag
 } from 'element-ui';
 
 export function setElement(app) {
+    app.use(Alert)
     app.use(Aside)
     app.use(Button)
     app.use(Breadcrumb)
     app.use(BreadcrumbItem)
     app.use(Card)
     app.use(Container)
+    app.use(Checkbox)
+    app.use(CheckboxGroup)
+    app.use(CheckboxButton)
+    app.use(DatePicker)
+    app.use(Dropdown)
+    app.use(DropdownItem)
+    app.use(DropdownMenu)
     app.use(Dialog)
     app.use(Form)
     app.use(FormItem)
@@ -40,8 +58,10 @@ export function setElement(app) {
     app.use(Menu)
     app.use(MenuItem)
     app.use(MenuItemGroup)
+    app.use(Pagination)
     app.use(Select)
     app.use(Submenu)
+    app.use(Switch)
     app.use(Table)
     app.use(TableColumn)
     app.use(Tag)

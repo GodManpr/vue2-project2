@@ -3,7 +3,6 @@
     <el-dialog
         :title="dialogTitle"
         :visible.sync="visible"
-        width="30%"
         :before-close="cancel">
       <slot>这是一段信息</slot>
       <span slot="footer" class="dialog-footer">
@@ -39,7 +38,6 @@ export default {
   methods: {
     confirm() {
       this.$emit('confirm')
-      this.cancel()
     },
     cancel() {
       this.$emit('update:visible', false)

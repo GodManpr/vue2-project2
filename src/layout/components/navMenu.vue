@@ -40,9 +40,6 @@ export default {
       })
 
       this.createTree(this.dataList, dList)
-      console.log(dList);
-      // this.dataList
-      console.log(this.dataList);
     },
     createTree(pData, data) {
       for (let i = 0; i < pData.length; i++) {
