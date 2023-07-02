@@ -30,9 +30,7 @@ export default {
         },
         SETUSEPERMISSION(state, path) {
             const res = state.menuItem.filter(v => v.menu_url === path)
-            console.log(res);
             state.userPermission = res.map(v => v.userPermission)
-            console.log(state.userPermission);
         }
     },
     actions: {

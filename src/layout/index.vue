@@ -41,8 +41,6 @@ export default {
       removeToken()
       // 清空nav
       await store.dispatch('INITNAV')
-      this.$store.state.tags.tagList = []
-      console.log(this.$store.state.tags.tagList);
       // 跳转登录页
       this.$router.push('/login')
     }
