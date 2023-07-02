@@ -4,9 +4,8 @@ import routes from "./route"
 import {createRouterGuards} from "@/router/router-guards"
 
 Vue.use(VueRouter)
-
 const router = new VueRouter({
-  routes
+    routes
 })
 
 createRouterGuards(router) // guards

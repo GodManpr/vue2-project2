@@ -40,6 +40,9 @@
 import {login} from "@/api/api";
 import md5 from "md5";
 import {useToken} from "@/utils/useToken";
+import store from "@/store"
+import routes from "@/router/route";
+
 const {setToken} = useToken()
 
 export default {
@@ -67,14 +70,14 @@ export default {
         if (valid) {
           this.ruleForm.password = md5(this.ruleForm.password)
           const res = await login(this.ruleForm)
-          const {data: {token}, code} = res.data
-          console.log(token);
+          const {data: {token, id}, code} = res.data
           if (code == 20000) {
             setToken(token)
+            store.dispatch('SETUID', id)
             this.$router.push('/home')
+            // 缓存uid用于拿对应的请求
           }
         } else {
-          console.log('error submit!!');
           return false;
         }
       });

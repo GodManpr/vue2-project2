@@ -8,7 +8,6 @@ axios.defaults.baseURL = 'http://49.235.128.49:5059/api/'
 
 axios.interceptors.request.use(config => {
     const token = getToken()
-    console.log(token);
     if (token) {
         config.headers['token'] = token
     }

@@ -41,6 +41,12 @@ export const findModules = data => http.get('permission/findModules', data)
 
 // 权限管理-查找所有操作员
 export const getOpers = () => http.get('user/opers')
-//
+
 // 权限管理-操作员权限-通过操作员id查对应权限
 export const findModulesByUid = id => http.get('permission/findModulesByUid', {id})
+
+// 权限管理-修改操作员权限
+export const updatePermission = data => http.post('permission/updateModulesPermByUid', data)
+
+// 退出
+export const logout = data => http.post('user/logout', data)

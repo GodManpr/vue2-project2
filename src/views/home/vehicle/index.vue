@@ -2,7 +2,7 @@
   <div>
     <el-card class="box-card marginBottom">
       <!--      @click="setData('add',null)"-->
-      <el-button type="success" @click="setData('add',null)">新增车辆</el-button>
+      <el-button type="success" @click="setData('add',null)" :disabled="menuStatus('新增车辆')">新增车辆</el-button>
     </el-card>
     <el-card>
       <el-table
@@ -38,8 +38,8 @@
             width="200px"
             label="操作">
           <template slot-scope="{row}">
-            <el-button type="primary" @click="setData('edit',row)">编辑</el-button>
-            <el-button type="danger" @click="handelDel(row)">删除</el-button>
+            <el-button type="primary" @click="setData('edit',row)" :disabled="menuStatus('编辑')">编辑</el-button>
+            <el-button type="danger" @click="handelDel(row)" :disabled="menuStatus('删除')">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -111,6 +111,9 @@
 import {carDel, carSubmit, getCarList, numberSingle} from "@/api/api";
 import Dialog from '@/components/dialog/index.vue'
 import Pagination from '@/components/pagination/index.vue'
+import {usePermission} from "@/utils/usePermission";
+
+const {permissions, menuStatus} = usePermission()
 
 export default {
   components: {
@@ -130,10 +133,19 @@ export default {
       dialogDelVisible: false,
       isExist: false,
       total: 1, // 总数
+      isPermission: false
+    }
+  },
+  computed: {
+    menuStatus(item) {
+      return function (item) {
+        return menuStatus(item)
+      }
     }
   },
   mounted() {
     this.getCarLists()
+    permissions(this.$route.path)
   },
   methods: {
     async getCarLists() {

@@ -19,6 +19,7 @@
 <script>
 import {mapGetters} from "vuex";
 import store from "@/store"
+import routes from "@/router/route";
 
 export default {
   name: 'tag',
@@ -33,6 +34,7 @@ export default {
   methods: {
     toTagUrl(tag) {// 点击跳转
       if (this.$route.path === tag.menu_url) return
+      console.log(routes);
       this.$router.push(tag.menu_url)
     },
     setDefaultUrl(url) {// 设置defaultUrl

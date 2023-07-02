@@ -5,7 +5,7 @@
       <el-container>
         <el-header>
           <Breadcrumb/>
-          <el-button class="exit" type="primary">退出</el-button>
+          <el-button class="exit" type="primary" @click="quit">退出</el-button>
           <Tag/>
         </el-header>
 
@@ -20,12 +20,32 @@
 
 <script>
 import {Breadcrumb, NavMenu, Tag} from "@/layout/components";
+import {useToken} from "@/utils/useToken";
+import {logout} from "@/api/api";
+import store from "@/store"
 
 export default {
   components: {
     Breadcrumb,
     NavMenu,
     Tag
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    async quit() { // 退出
+      await logout()
+      // 清空token
+      const {removeToken} = useToken()
+      removeToken()
+      // 清空nav
+      await store.dispatch('INITNAV')
+      this.$store.state.tags.tagList = []
+      console.log(this.$store.state.tags.tagList);
+      // 跳转登录页
+      this.$router.push('/login')
+    }
   }
 }
 
